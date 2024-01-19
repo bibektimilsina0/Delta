@@ -1,0 +1,53 @@
+import Transfer from "./Transfer";
+import { Link } from 'react-router-dom';
+import img from './image/green.jpg'
+function Transaction() {
+    return (
+        <div className="flex justify-center">
+            <div className="w-1/2 flex items-center ">
+
+                <img src={img} alt="logo" className=" m-4 rounded-xl h-[50vh]" />
+
+            </div>
+            <div className="w-1/2 text-center items-center border h-[80vh] mt-2 p-8 bg-gray-100 rounded-lg mr-4">
+                <div className="mb-4">
+                    <h1 className="text-3xl font-bold text-blue-500 mb-2">Eco-Chain</h1>
+                </div>
+                <div className="flex justify-between items-center mb-4 ml-12">
+                    <div className="flex-grow"></div>
+                    <div className="flex-shrink-0">
+                        <select className="border p-2 rounded">
+                            <option value="">Account 1</option>
+                            {/* Add more account options as needed */}
+                        </select>
+                    </div>
+                    <div className="flex-grow text-gray-600">Account Details</div>
+                </div>
+                <div className="flex justify-center">
+
+                    <h1 className="text-2xl font-bold mb-4 bg-gray-400 w-[50%]  border rounded-full">Public Key</h1>
+                </div>
+                <div className="mb-4">
+                    <h3 className="text-xl font-semibold mb-1">Balance<span className="text-gray-600"> BTC</span></h3>
+                    <h5 className="text-lg">$balanceinuse <span className="text-gray-600">USD</span></h5>
+                </div>
+                <div className="flex justify-center mb-4">
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-4" >
+                        <Link to='/transfer'>Transfer</Link>
+
+                    </button>
+                    <button className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 mx-4 px-4 rounded" >
+                        <Link to='/stack'>Stack</Link>
+
+                    </button>
+                </div>
+                <div className="border min-h-[30vh] p-4 overflow-y-auto">
+                    <h4 className="text-lg font-semibold mb-2">History</h4>
+                    {/* Add your history content here */}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export default Transaction;
