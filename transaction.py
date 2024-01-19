@@ -9,3 +9,6 @@ class Transcation():
         self.id=uuid.uuid1().hex
         self.timestamp=time.time()
         self.signature=''
+    
+    def toJson(self):
+        return self.__dict__
