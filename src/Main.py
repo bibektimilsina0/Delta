@@ -1,12 +1,12 @@
-from Transaction import Transaction
-from Wallet import Wallet
-from TransactionPool import TransactionPool
-from Block import Block
-from Blockchain import Blockchain
+from transactions.Transaction import Transaction
+from interaction.Wallet import Wallet
+from transactions.TransactionPool import TransactionPool
+from blockchain.Block import Block
+from blockchain.Blockchain import Blockchain
 import pprint
-from BlockchainUtils import BlockchainUtils
-from AccountModel import AccountModel
-from Node import Node
+from blockchain.BlockchainUtils import BlockchainUtils
+from interaction.AccountModel import AccountModel
+from interaction.Node import Node
 import sys
 
 if __name__ == '__main__':

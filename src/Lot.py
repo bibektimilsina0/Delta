@@ -1,4 +1,4 @@
-from BlockchainUtils import BlockchainUtils
+from blockchain.BlockchainUtils import BlockchainUtils
 
 
 class Lot():

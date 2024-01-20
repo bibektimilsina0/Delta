@@ -1,6 +1,6 @@
-from Block import Block
-from BlockchainUtils import BlockchainUtils
-from AccountModel import AccountModel
+from blockchain.Block import Block
+from blockchain.BlockchainUtils import BlockchainUtils
+from interaction.AccountModel import AccountModel
 from ProofOfStake import ProofOfStake
 
 

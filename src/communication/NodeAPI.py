@@ -1,6 +1,6 @@
 from flask_classful import FlaskView, route
 from flask import Flask, jsonify, request
-from BlockchainUtils import BlockchainUtils
+from blockchain.BlockchainUtils import BlockchainUtils
 
 node = None
 
@@ -12,7 +12,7 @@ class NodeAPI(FlaskView):
 
     def start(self, port):
         NodeAPI.register(self.app, route_base='/')
-        self.app.run(host='localhost', port=port)
+        self.app.run(host='0.0.0.0', port=port)
 
     def injectNode(self, injectedNode):
         global node

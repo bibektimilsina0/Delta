@@ -1,10 +1,10 @@
-from Blockchain import Blockchain
-from TransactionPool import TransactionPool
-from Wallet import Wallet
-from SocketCommunication import SocketCommunication
-from NodeAPI import NodeAPI
-from Message import Message
-from BlockchainUtils import BlockchainUtils
+from blockchain.Blockchain import Blockchain
+from transactions.TransactionPool import TransactionPool
+from interaction.Wallet import Wallet
+from communication.SocketCommunication import SocketCommunication
+from communication.NodeAPI import NodeAPI
+from interaction.Message import Message
+from blockchain.BlockchainUtils import BlockchainUtils
 import copy
 
 

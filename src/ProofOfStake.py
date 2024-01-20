@@ -1,4 +1,4 @@
-from BlockchainUtils import BlockchainUtils
+from blockchain.BlockchainUtils import BlockchainUtils
 from Lot import Lot
 
 
@@ -9,7 +9,7 @@ class ProofOfStake():
         self.setGenesisNodeStake()
 
     def setGenesisNodeStake(self):
-        genesisPublicKey = open('keys/genesisPublicKey.pem', 'r').read()
+        genesisPublicKey = open('../keys/genesisPublicKey.pem', 'r').read()
         self.stakers[genesisPublicKey] = 1
 
     def update(self, publicKeyString, stake):

@@ -1,14 +1,16 @@
 from p2pnetwork.node import Node
-from PeerDiscoveryHandler import PeerDiscoveryHandler
-from SocketConnector import SocketConnector
-from BlockchainUtils import BlockchainUtils
+from communication.PeerDiscoveryHandler import PeerDiscoveryHandler
+from communication.SocketConnector import SocketConnector
+from blockchain.BlockchainUtils import BlockchainUtils
 import json
+import socket
 
 
 class SocketCommunication(Node):
 
     def __init__(self, ip, port):
-        super(SocketCommunication, self).__init__(ip, port, None)
+        internal_ip_address = socket.gethostbyname(socket.gethostname())
+        super(SocketCommunication, self).__init__(internal_ip_address, port, None)
         self.peers = []
         self.peerDiscoveryHandler = PeerDiscoveryHandler(self)
         self.socketConnector = SocketConnector(ip, port)

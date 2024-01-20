@@ -1,7 +1,7 @@
 from Crypto.PublicKey import RSA
-from Transaction import Transaction
-from Block import Block
-from BlockchainUtils import BlockchainUtils
+from transactions.Transaction import Transaction
+from blockchain.Block import Block
+from blockchain.BlockchainUtils import BlockchainUtils
 from Crypto.Signature import PKCS1_v1_5
 
 

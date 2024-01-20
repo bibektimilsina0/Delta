@@ -1,5 +1,5 @@
-from Wallet import Wallet
-from BlockchainUtils import BlockchainUtils
+from interaction.Wallet import Wallet
+from blockchain.BlockchainUtils import BlockchainUtils
 import requests
 
 
