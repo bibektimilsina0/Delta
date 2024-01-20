@@ -5,6 +5,8 @@ from urllib.parse import unquote
 from interaction.Wallet import Wallet
 import requests
 
+from flask_cors import CORS
+
 
 node = None
 
@@ -12,12 +14,14 @@ node = None
 class NodeAPI(FlaskView):
 
     bob = Wallet()
+    bob.fromKey('keys/bobPrivateKey.pem')
     alice = Wallet()
     alice.fromKey('keys/stakerPrivateKey.pem')
     exchnage=Wallet()
 
     def __init__(self):
         self.app = Flask(__name__)
+        CORS(self.app)
 
     def start(self, port):
         NodeAPI.register(self.app, route_base='/')
@@ -102,8 +106,8 @@ class NodeAPI(FlaskView):
         print('bob',balanceBob)
         print('alice',balanceAlice)
         
-        response={'bob':balanceBob,'alice':balanceAlice,'data':e}
-        return jsonify(response),200
+        # response={'bob':balanceBob,'alice':balanceAlice,'data':e}
+        return jsonify(e),200
     
 
     @route('/balance', methods=['POST'])
