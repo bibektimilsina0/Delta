@@ -9,7 +9,7 @@ function Profile() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="min-h-screen flex items-center justify-center bg-[#1D3565]">
             <div className="bg-white p-8 rounded-lg shadow-md w-96">
                 <h1 className="text-3xl font-bold mb-6">Profile Section</h1>
                 <div className="mb-4">

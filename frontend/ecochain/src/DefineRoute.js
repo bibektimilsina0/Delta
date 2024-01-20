@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter , Route, Routes } from 'react-router-dom';
 import App from './App';
-import Transaction from './Transaction';
-import Transfer from './Transfer';
-import Stack from './Stack'
-import Profile from './Profile';
+import Transaction from './components/Transaction';
+import Transfer from './components/Transfer';
+import Stack from './components/Stack'
+import Profile from './components/Profile';
+import BlockchainExplorer from './components/BlockchainExplorer';
 
 function DefineRoute() {
     return ( 
@@ -15,6 +16,7 @@ function DefineRoute() {
             <Route path="/transfer" element={<Transfer />} />
             <Route path="/stack" element={<Stack/>} />
             <Route path="/profile" element={<Profile/>} />
+            <Route path="/blockchain" element={<BlockchainExplorer/>} />
           </Routes>
         </BrowserRouter>
      );
