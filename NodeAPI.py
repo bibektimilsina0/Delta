@@ -38,20 +38,7 @@ class NodeAPI(FlaskView):
         return jsonify(transactions), 200
     
 
-    @route('/do',methods=['POST'])
-    def do(self):
-        def postTransaction(sender, receiver, amount, type):
-            transaction = sender.createTransaction(
-                receiver.publicKeyString(), amount, type)
-            url = "http://localhost:5000/transaction"
-            package = {'transaction': BlockchainUtils.encode(transaction)}
-            request = requests.post(url, json=package)
-            return package
-        bob = Wallet()
-        alice = Wallet()
-        
-        request=postTransaction(bob, alice, 69, 'EXCHANGE')
-        return jsonify(request),200
+    
 
     @route('/transaction', methods=['POST'])
     def transaction(self):
@@ -63,6 +50,24 @@ class NodeAPI(FlaskView):
         response = {'message': 'Received transaction'}
         return jsonify(response), 201
     
+    @route('/do', methods=['POST'])
+    def do(self):
+        values = request.get_json()
+        if 'amount' not in values or 'type' not in values:
+            return 'Missing amount or type value', 400
+        def postTransaction(sender, receiver, amount, type):
+            transaction = sender.createTransaction(
+                receiver.publicKeyString(), amount, type)
+            url = "http://localhost:5000/transaction"
+            package = {'transaction': BlockchainUtils.encode(transaction)}
+            requests.post(url, json=package)
+            return package
+        
+        bob = Wallet()
+        alice = Wallet()
+        
+        e=postTransaction(bob, alice, values['amount'], values['type'])
+        return jsonify(e),200
     @route('/balance', methods=['POST'])
     def get_balance(self):
         values = request.get_json()
