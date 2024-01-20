@@ -2,6 +2,8 @@ from flask_classful import FlaskView, route
 from flask import Flask, jsonify, request
 from BlockchainUtils import BlockchainUtils
 from urllib.parse import unquote
+from Wallet import Wallet
+import requests
 
 
 node = None
@@ -34,6 +36,22 @@ class NodeAPI(FlaskView):
         for ctr, transaction in enumerate(node.transactionPool.transactions):
             transactions[ctr] = transaction.toJson()
         return jsonify(transactions), 200
+    
+
+    @route('/do',methods=['POST'])
+    def do(self):
+        def postTransaction(sender, receiver, amount, type):
+            transaction = sender.createTransaction(
+                receiver.publicKeyString(), amount, type)
+            url = "http://localhost:5000/transaction"
+            package = {'transaction': BlockchainUtils.encode(transaction)}
+            request = requests.post(url, json=package)
+            return package
+        bob = Wallet()
+        alice = Wallet()
+        
+        request=postTransaction(bob, alice, 69, 'EXCHANGE')
+        return jsonify(request),200
 
     @route('/transaction', methods=['POST'])
     def transaction(self):
