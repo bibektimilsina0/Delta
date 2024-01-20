@@ -70,6 +70,9 @@ class NodeAPI(FlaskView):
         postTransaction(self.exchnage, self.bob, 100, 'EXCHANGE')
         postTransaction(self.exchnage, self.alice, 1, 'EXCHANGE')
         postTransaction(self.exchnage, self.alice, 1, 'EXCHANGE')
+        # bob = Wallet()
+        # alice = Wallet()
+        # alice.fromKey('keys/stakerPrivateKey.pem')
         
 
         balanceBob = node.blockchain.getAccountBalance(self.bob.publicKeyString())
@@ -78,6 +81,7 @@ class NodeAPI(FlaskView):
         print('alice',balanceAlice)
         
         response={'bob':balanceBob,'alice':balanceAlice}
+       
         return jsonify(response),200
     
     @route('/do', methods=['POST'])
@@ -93,12 +97,19 @@ class NodeAPI(FlaskView):
             requests.post(url, json=package)
             return package
         
+        balanceBob = node.blockchain.getAccountBalance(self.bob.publicKeyString())
+        balanceAlice= node.blockchain.getAccountBalance(self.alice.publicKeyString())
+        
+        if(balanceBob<balanceAlice):
+            return 'Not Enough Balance',400
+        
         e=postTransaction(self.bob, self.alice, values['amount'], values['type'])
 
         balanceBob = node.blockchain.getAccountBalance(self.bob.publicKeyString())
         balanceAlice= node.blockchain.getAccountBalance(self.alice.publicKeyString())
         print('bob',balanceBob)
         print('alice',balanceAlice)
+        
         
         response={'bob':balanceBob,'alice':balanceAlice,'data':e}
         return jsonify(response),200

@@ -17,13 +17,19 @@ if __name__ == '__main__':
     alice = Wallet()
     alice.fromKey('keys/stakerPrivateKey.pem')
     exchange = Wallet()
-
+    
     #forger: genesis
-    postTransaction(exchange, alice, 100, 'EXCHANGE')
-    postTransaction(exchange, bob, 100, 'EXCHANGE')
-    postTransaction(exchange, bob, 10, 'EXCHANGE')
+    
+    # postTransaction(exchange, bob, 100, 'EXCHANGE')
+    # postTransaction(exchange, bob, 1, 'EXCHANGE')
+    # postTransaction(exchange, bob, 1, 'EXCHANGE')
 
-    # forger: probably alice
-    postTransaction(alice, alice, 25, 'STAKE')
-    postTransaction(alice, bob, 1, 'TRANSFER')
-    postTransaction(alice, bob, 1, 'TRANSFER')
+    
+
+    # postTransaction(exchange, bob, 100, 'EXCHANGE')
+    # postTransaction(exchange, bob, 10, 'EXCHANGE')
+
+    # # forger: probably alice
+    # postTransaction(alice, alice, 25, 'STAKE')
+    # postTransaction(alice, bob, 1, 'TRANSFER')
+    # postTransaction(alice, bob, 1, 'TRANSFER')
