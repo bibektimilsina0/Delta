@@ -10,13 +10,13 @@ def postTransaction(sender, receiver, amount, type):
     package = {'transaction': BlockchainUtils.encode(transaction)}
     request = requests.post(url, json=package)
 
-
 if __name__ == '__main__':
 
     bob = Wallet()
     alice = Wallet()
     alice.fromKey('keys/stakerPrivateKey.pem')
     exchange = Wallet()
+    gentleman = Wallet()
 
     #forger: genesis
     postTransaction(exchange, alice, 100, 'EXCHANGE')
@@ -25,5 +25,7 @@ if __name__ == '__main__':
 
     # forger: probably alice
     postTransaction(alice, alice, 25, 'STAKE')
+    postTransaction(alice, gentleman, 13, 'TRANSFER')
+
     postTransaction(alice, bob, 1, 'TRANSFER')
     postTransaction(alice, bob, 1, 'TRANSFER')

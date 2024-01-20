@@ -11,6 +11,14 @@ import copy
 class Node():
 
     def __init__(self, ip, port, key=None):
+
+        # Initializes a Node instance.
+
+        # Args:
+        #     ip (str): IP address of the node.
+        #     port (int): Port number for communication.
+        #     key (str): Optional key for wallet initialization.
+
         self.p2p = None
         self.ip = ip
         self.port = port
@@ -30,6 +38,12 @@ class Node():
         self.api.start(apiPort)
 
     def handleTransaction(self, transaction):
+
+        # Handles incoming transactions.
+
+        # Args:
+        # transaction (Transaction): Transaction object.
+
         data = transaction.payload()
         signature = transaction.signature
         signerPublicKey = transaction.senderPublicKey

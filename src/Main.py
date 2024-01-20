@@ -10,6 +10,8 @@ from interaction.Node import Node
 import sys
 
 if __name__ == '__main__':
+    
+    # Extract command-line arguments for IP, port, API port, and optional key file
     ip = sys.argv[1]
     port = int(sys.argv[2])
     apiPort = int(sys.argv[3])
@@ -17,6 +19,8 @@ if __name__ == '__main__':
     if len(sys.argv) > 4:
         keyFile = sys.argv[4]
 
+    # Create a Node instance with specified parameters
+
     node = Node(ip, port, keyFile)
     node.startP2P()
-    node.startAPI(apiPort)
+    node.startAPI(apiPort)                                                                      

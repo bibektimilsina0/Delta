@@ -3,14 +3,14 @@ from communication.PeerDiscoveryHandler import PeerDiscoveryHandler
 from communication.SocketConnector import SocketConnector
 from blockchain.BlockchainUtils import BlockchainUtils
 import json
-import socket
+# import socket
 
 
 class SocketCommunication(Node):
 
     def __init__(self, ip, port):
-        internal_ip_address = socket.gethostbyname(socket.gethostname())
-        super(SocketCommunication, self).__init__(internal_ip_address, port, None)
+        # internal_ip_address = socket.gethostbyname(socket.gethostname())
+        super(SocketCommunication, self).__init__(ip, port, None)
         self.peers = []
         self.peerDiscoveryHandler = PeerDiscoveryHandler(self)
         self.socketConnector = SocketConnector(ip, port)

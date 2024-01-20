@@ -110,3 +110,6 @@ class Blockchain():
         if len(coveredTransactions) == len(transactions):
             return True
         return False
+    
+    def getAccountBalance(self, public_key):
+        return self.accountModel.getBalance(public_key)
