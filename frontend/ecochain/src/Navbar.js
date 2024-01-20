@@ -1,32 +1,47 @@
 import React from "react";
 import logo from './image/download.png';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
     return (
-        <section className="navbar mw-100 bg-gray-400 text-white py-4 flex">
+        <section className="navbar bg-gray-400 text-white py-4 flex">
             <div className="logosection flex items-center w-1/4">
                 <ul id="logosection" className="flex items-center space-x-2">
                     <li>
-                        <img src={logo} alt="logo" className=" ml-8 rounded-full h-10 w-15" />
+                        <img src={logo} alt="logo" className="ml-8 rounded-full h-10 w-15" />
                     </li>
                     <li className="list" id="logo">
                         <span className="text-info">ECO--</span>CHAIN
                     </li>
                 </ul>
             </div>
-            <div className="list items-center w-3/4 ">
+            <div className="list items-center w-3/4">
                 <ul id="lists" className="flex space-x-2 justify-around">
                     <li className="list" id="home">
-                        <a href='/' className="hover:text-gray-300">Home</a>
+                    <Link to='/' className="hover:text-gray-300">
+                            <button className="transition-colors duration-300 bg-transparent border border-white px-4 py-2 rounded hover:bg-white hover:text-gray-800">Home</button>
+                        </Link>
+                       
                     </li>
-                    <li className="list" id="market">
-                        <a href='#connect' className="hover:text-gray-300">Connect</a>
-                    </li>
+                    <li className="list" id="connect">
+                    <Link to='/connect' className="hover:text-gray-300">
+                            <button className="transition-colors duration-300 bg-transparent border border-white px-4 py-2 rounded hover:bg-white hover:text-gray-800">Connect</button>
+                        </Link>
+                         </li>
                     <li className="list" id="transfer">
-                        <a href='#transfer' className="hover:text-gray-300">Transfer</a>
+                        <Link to='/transfer' className="hover:text-gray-300">
+                            <button className="transition-colors duration-300 bg-transparent border border-white px-4 py-2 rounded hover:bg-white hover:text-gray-800">Transfer</button>
+                        </Link>
                     </li>
-                    <li className="list" id="Profile">
-                        <a href='#profile' className="hover:text-gray-300">Profile</a>
+                    <li className="list" id="stack">
+                        <Link to='/stack' className="hover:text-gray-300">
+                            <button className="transition-colors duration-300 bg-transparent border border-white px-4 py-2 rounded hover:bg-white hover:text-gray-800">Stack</button>
+                        </Link>
+                    </li>
+                    <li className="list" id="profile">
+                        <Link to='/profile' className="hover:text-gray-300">
+                            <button className="transition-colors duration-300 bg-transparent border border-white px-4 py-2 rounded hover:bg-white hover:text-gray-800">Profile</button>
+                        </Link>
                     </li>
                 </ul>
             </div>

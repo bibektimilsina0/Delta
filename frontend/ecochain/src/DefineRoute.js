@@ -4,6 +4,7 @@ import App from './App';
 import Transaction from './Transaction';
 import Transfer from './Transfer';
 import Stack from './Stack'
+import Profile from './Profile';
 
 function DefineRoute() {
     return ( 
@@ -13,6 +14,7 @@ function DefineRoute() {
             <Route path="/transaction" element={<Transaction />} />
             <Route path="/transfer" element={<Transfer />} />
             <Route path="/stack" element={<Stack/>} />
+            <Route path="/profile" element={<Profile/>} />
           </Routes>
         </BrowserRouter>
      );
